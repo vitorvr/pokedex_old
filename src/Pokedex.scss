@@ -1,0 +1,9 @@
+.Pokedex {
+  &-list {
+    &-item {
+      display: inline-block;
+      width: 100px;
+      padding-right: 50px;
+    }
+  }
+}
