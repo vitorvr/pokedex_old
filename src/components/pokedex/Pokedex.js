@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Pokedex.scss';
-import PokemonCard from './components/pokemon_card/PokemonCard';
+import PokemonCard from '../pokemon_card/PokemonCard';
 
 class Pokedex extends Component {
   constructor() {
@@ -15,13 +15,19 @@ class Pokedex extends Component {
       .then(data => this.setState({pokemons: data.results}));
   }
   render() {
+
+    function getPokemonId(url){
+      return url.split("/pokemon/")[1].split("/")[0];
+    }
+
     const pokemonsJson = this.state.pokemons.map(pokemon => (
       <li key={pokemon.url} className="Pokedex-list-item">
-        <PokemonCard pokemonName={pokemon.name}/>
+        <PokemonCard pokemonName={pokemon.name} pokemonId={getPokemonId(pokemon.url)}/>
       </li>
     ));
+
     return (
-      <div className="Pokedex">
+      <div className="container Pokedex">
         <ul className="Pokedex-list">
           {pokemonsJson}
         </ul>
