@@ -9,11 +9,13 @@ class Pokedex extends Component {
       pokemons: []
     }
   }
+
   componentWillMount() {
     fetch('https://pokeapi.co/api/v2/pokemon/?limit=802')
       .then(response => response.json())
       .then(data => this.setState({pokemons: data.results}));
   }
+
   render() {
 
     function getPokemonId(url){

@@ -3,9 +3,7 @@ import PokemonSprite from '../pokemon_sprite/PokemonSprite';
 
 import './PokemonCard.scss';
 
-
 class PokemonCard extends Component {
-
 
   render() {
     return (
